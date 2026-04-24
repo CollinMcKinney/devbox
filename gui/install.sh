@@ -212,16 +212,16 @@ EOF
 chown "$SUDO_USER:$SUDO_USER" "${USER_HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc"
 
 # Theme settings.
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group org.kde.kdecoration2 --key library "org.kde.kwin.decoration"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group org.kde.kdecoration2 --key theme "Plastik"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kcminputrc --group Mouse --key cursorTheme "breeze_cursors"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group NightLight --key Active "true"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group NightLight --key Mode "Custom"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group NightLight --key DayTemperature "6500"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group NightLight --key NightTemperature "4500"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group NightLight --key EveningStart "18:00"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group NightLight --key MorningStart "06:00"
-sudo -u "$SUDO_USER" kwriteconfig6 --file ~/.config/kwinrc --group NightLight --key TransitionTime "30"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group org.kde.kdecoration2 --key library "org.kde.kwin.decoration"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group org.kde.kdecoration2 --key theme "Plastik"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kcminputrc" --group Mouse --key cursorTheme "breeze_cursors"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group NightLight --key Active "true"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group NightLight --key Mode "Custom"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group NightLight --key DayTemperature "6500"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group NightLight --key NightTemperature "4500"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group NightLight --key EveningStart "18:00"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group NightLight --key MorningStart "06:00"
+sudo -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group NightLight --key TransitionTime "30"
 
 # Disable splash screen.
 sudo -u "$SUDO_USER" mkdir -p "$USER_HOME/.config"
