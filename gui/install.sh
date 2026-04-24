@@ -60,8 +60,8 @@ apt install --no-install-recommends -y \
 
 mkdir -p /etc/NetworkManager/conf.d
 printf "[main]\nmanaged=true\n" > /etc/NetworkManager/conf.d/10-globally-managed-devices.conf
-sudo systemctl enable bluetooth
-sudo systemctl enable NetworkManager
+systemctl enable bluetooth
+systemctl enable NetworkManager
 
 # Plasma desktop layout.
 mkdir -p "${USER_HOME}/.config"

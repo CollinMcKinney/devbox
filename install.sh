@@ -32,7 +32,7 @@ for STAGE in "${STAGES[@]}"; do
     echo "=========================================="
     echo "Running stage: ${STAGE##*/}"
     echo "=========================================="
-    bash "$STAGE"
+    bash -x "$STAGE"
 done
 
 echo ""
