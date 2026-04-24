@@ -10,6 +10,7 @@ fi
 apt install --no-install-recommends -y \
     firefox-esr \
     dolphin \
+    konsole-kpart \
     ffmpeg \
     libavcodec-extra
 
