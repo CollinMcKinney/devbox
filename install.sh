@@ -23,8 +23,9 @@ STAGES=(
     "$SCRIPT_DIR/core/install.sh"
     "$SCRIPT_DIR/gui/install.sh"
     "$SCRIPT_DIR/shell/install.sh"
-    #"$SCRIPT_DIR/tools/install.sh"
-    #"$SCRIPT_DIR/apps/install.sh"
+    # "$SCRIPT_DIR/tools/install.sh"
+    "$SCRIPT_DIR/apps/install.sh"
+    "$SCRIPT_DIR/config/install.sh"
 )
 
 for STAGE in "${STAGES[@]}"; do
@@ -32,18 +33,12 @@ for STAGE in "${STAGES[@]}"; do
     echo "=========================================="
     echo "Running stage: ${STAGE##*/}"
     echo "=========================================="
-    bash -x "$STAGE"
+    bash "$STAGE"
 done
 
 echo ""
 echo "=========================================="
 echo "Installation complete!"
-echo ""
-echo "To verify installations:"
-echo "  dpkg -l | grep -E '(codium|podman|docker)'"
-echo "  which codium podman docker"
-echo ""
-echo "Plasma configuration has been applied."
 echo "=========================================="
 echo ""
 REPLY=""
