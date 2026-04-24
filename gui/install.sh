@@ -44,9 +44,16 @@ apt install --no-install-recommends -y \
     plasma-workspace \
     kwin-wayland \
     xdg-desktop-portal-kde \
+    libkf6config-bin \
     libqt6svg6 \
     libxcb-cursor0 \
     plasma-discover
+
+if ! command -v kwriteconfig6 >/dev/null 2>&1; then
+    echo "kwriteconfig6 is missing after installing GUI packages."
+    echo "Expected provider package: libkf6config-bin"
+    exit 1
+fi
 
 # Networking and audio stack.
 apt install --no-install-recommends -y \
