@@ -217,6 +217,8 @@ screenMapping=
 EOF
 
 chown "$SUDO_USER:$SUDO_USER" "${USER_HOME}/.config/plasma-org.kde.plasma.desktop-appletsrc"
+# Ensure the target user owns the config directory before kwriteconfig6 writes files.
+chown "$SUDO_USER:$SUDO_USER" "${USER_HOME}/.config"
 
 # Theme settings.
 sudo -H -u "$SUDO_USER" kwriteconfig6 --file "$USER_HOME/.config/kwinrc" --group org.kde.kdecoration2 --key library "org.kde.kwin.decoration"
