@@ -41,7 +41,6 @@ apt install --no-install-recommends -y \
     libkf6config-bin \
     libqt6svg6 \
     libxcb-cursor0 \
-    plasma-discover
 
 if ! command -v kwriteconfig6 >/dev/null 2>&1; then
     echo "kwriteconfig6 is missing after installing GUI packages."

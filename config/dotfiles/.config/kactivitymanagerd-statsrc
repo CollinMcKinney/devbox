@@ -1,5 +1,5 @@
 [Favorites-org.kde.plasma.kickoff.favorites.instance-21-c1c41a41-ec97-4be2-aec8-634927d59ae5]
-ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.discover.desktop,applications:Alacritty.desktop,applications:codium.desktop
+ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,applications:codium.desktop
 
 [Favorites-org.kde.plasma.kickoff.favorites.instance-21-global]
-ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:org.kde.discover.desktop,applications:Alacritty.desktop,applications:codium.desktop
+ordering=preferred://browser,applications:systemsettings.desktop,applications:org.kde.dolphin.desktop,applications:Alacritty.desktop,applications:codium.desktop

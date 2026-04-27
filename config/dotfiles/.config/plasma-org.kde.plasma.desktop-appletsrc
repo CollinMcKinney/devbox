@@ -56,7 +56,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][20][Applets][23][Configuration][General]
-launchers=applications:systemsettings.desktop,applications:org.kde.discover.desktop,preferred://filemanager,preferred://browser,applications:codium.desktop,applications:Alacritty.desktop
+launchers=applications:systemsettings.desktop,preferred://filemanager,preferred://browser,applications:codium.desktop,applications:Alacritty.desktop
 
 [Containments][20][Applets][24]
 immutability=1
