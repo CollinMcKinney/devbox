@@ -38,5 +38,7 @@ apt install --no-install-recommends -y \
     librsvg2-dev \
     file \
     wget \
+    zip \
+    micro \
     desktop-file-utils \
     ca-certificates
