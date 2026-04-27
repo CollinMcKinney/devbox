@@ -23,7 +23,7 @@ STAGES=(
     "$SCRIPT_DIR/core/install.sh"
     "$SCRIPT_DIR/gui/install.sh"
     "$SCRIPT_DIR/shell/install.sh"
-    # "$SCRIPT_DIR/tools/install.sh"
+    "$SCRIPT_DIR/tools/install.sh"
     "$SCRIPT_DIR/apps/install.sh"
     "$SCRIPT_DIR/config/install.sh"
 )
