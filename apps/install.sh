@@ -9,6 +9,7 @@ fi
 # Desktop applications and media codecs.
 apt install --no-install-recommends -y \
     firefox-esr \
+    htop \
     dolphin \
     konsole-kpart \
     ffmpeg \
