@@ -30,6 +30,8 @@ apt install -y \
     wabt \
     binaryen
 
+# TODO: install gradle without installing groovyConsole.
+
 # Latest stable Node via n.
 npm install -g n
 n stable
@@ -85,11 +87,11 @@ apt install -y \
 usermod -aG docker "$SUDO_USER"
 
 # Docker Desktop.
-echo "Installing Docker Desktop..."
-curl -fL "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb" -o /tmp/docker-desktop-amd64.deb
-apt install -y /tmp/docker-desktop-amd64.deb
-rm -f /tmp/docker-desktop-amd64.deb
-usermod -aG kvm "$SUDO_USER" 2>/dev/null
+# echo "Installing Docker Desktop..."
+# curl -fL "https://desktop.docker.com/linux/main/amd64/docker-desktop-amd64.deb" -o /tmp/docker-desktop-amd64.deb
+# apt install -y /tmp/docker-desktop-amd64.deb
+# rm -f /tmp/docker-desktop-amd64.deb
+# usermod -aG kvm "$SUDO_USER" 2>/dev/null
 
 # Podman.
 apt install -y podman podman-compose
