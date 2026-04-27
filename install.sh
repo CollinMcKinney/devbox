@@ -26,6 +26,7 @@ STAGES=(
     "$SCRIPT_DIR/tools/install.sh"
     "$SCRIPT_DIR/apps/install.sh"
     "$SCRIPT_DIR/config/install.sh"
+    "$SCRIPT_DIR/cleanup.sh"
 )
 
 for STAGE in "${STAGES[@]}"; do
