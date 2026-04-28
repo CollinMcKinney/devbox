@@ -7,7 +7,7 @@ if [ -z "${SUDO_USER:-}" ]; then
 fi
 
 # ============================================================
-# GPU detection – build vendor flags
+# GPU detection – set vendor flags
 # ============================================================
 echo "=== Detecting GPUs ==="
 GPU_INFO=$(lspci | grep -E "VGA|3D" | tr '[:upper:]' '[:lower:]')
@@ -38,11 +38,9 @@ if $HAS_NVIDIA; then
         nvidia-detect \
         linux-headers-"$(uname -r)"
 
-    # Let the tool pick the exact driver for this GPU
     RECOMMENDED_DRIVER=$(nvidia-detect 2>/dev/null | grep -oP 'nvidia-[\w-]+' | head -1)
     if [ -z "$RECOMMENDED_DRIVER" ]; then
         echo "ERROR: nvidia-detect could not determine the correct driver package."
-        echo "Please check your sources.list (contrib & non-free)."
         exit 1
     fi
 
@@ -52,13 +50,25 @@ if $HAS_NVIDIA; then
         nvidia-settings \
         firmware-misc-nonfree
 
-    # Hybrid system check – install nvidia-prime only if there is any non-NVIDIA GPU
-    NON_NVIDIA_COUNT=$(lspci | grep -E "VGA|3D" | grep -civ "NVIDIA")
+    # Blacklist nouveau
+    cat > /etc/modprobe.d/blacklist-nouveau.conf <<EOF
+blacklist nouveau
+options nouveau modeset=0
+EOF
+    update-initramfs -u
+    echo "nouveau blacklisted. NVIDIA driver will activate after reboot."
+
+    # Hybrid system? Create prime-run wrapper (no nvidia-prime needed)
+    NON_NVIDIA_COUNT=$(lspci | grep -E "VGA|3D" | grep -civ "NVIDIA" || true)
     if [ "$NON_NVIDIA_COUNT" -gt 0 ]; then
-        echo "Hybrid system (NVIDIA + other GPU). Installing nvidia-prime."
-        apt install -y nvidia-prime
+        echo "Hybrid system (NVIDIA + other GPU). Setting up PRIME render offload."
+        cat > /usr/local/bin/prime-run <<'PRIMEEOF'
+#!/bin/bash
+__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia "$@"
+PRIMEEOF
+        chmod +x /usr/local/bin/prime-run
     else
-        echo "Single NVIDIA GPU(s). nvidia-prime not required."
+        echo "Single NVIDIA GPU(s). PRIME offloading not required."
     fi
     echo ""
 fi
