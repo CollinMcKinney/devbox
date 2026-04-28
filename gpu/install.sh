@@ -39,7 +39,7 @@ if $HAS_NVIDIA; then
         linux-headers-"$(uname -r)"
 
     # Let the tool pick the exact driver for this GPU
-    RECOMMENDED_DRIVER=$(nvidia-detect 2>/dev/null | grep "It is recommended to install" | awk '{print $NF}')
+    RECOMMENDED_DRIVER=$(nvidia-detect 2>/dev/null | grep -oP 'nvidia-[\w-]+' | head -1)
     if [ -z "$RECOMMENDED_DRIVER" ]; then
         echo "ERROR: nvidia-detect could not determine the correct driver package."
         echo "Please check your sources.list (contrib & non-free)."
