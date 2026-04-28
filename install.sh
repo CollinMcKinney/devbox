@@ -1,6 +1,11 @@
 #!/bin/bash
 set -euo pipefail
 
+if [ -z "${SUDO_USER:-}" ]; then
+    echo "This script must be run with sudo: sudo bash install.sh"
+    exit 1
+fi
+
 on_error() {
     local rc=$?
     echo "Install failed (exit $rc) at line $1: $2" >&2
@@ -11,11 +16,6 @@ on_error() {
     exit $rc
 }
 trap 'on_error "$LINENO" "$BASH_COMMAND"' ERR
-
-if [ -z "${SUDO_USER:-}" ]; then
-    echo "This script must be run with sudo: sudo bash install.sh"
-    exit 1
-fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
