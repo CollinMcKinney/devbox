@@ -10,11 +10,12 @@ fi
 GPU_TYPE=$(lspci | grep -E "VGA|3D" | tr '[:upper:]' '[:lower:]')
 
 if [[ $GPU_TYPE == *"nvidia"* ]]; then
-    apt install --no-install-recommends -y \
-        nvidia-driver \
-        nvidia-settings \
-        firmware-misc-nonfree \
-        linux-headers-amd64
+    echo "NVIDIA GPU detected but NVIDIA drivers are not configured in this script. Please install NVIDIA drivers manually after installation."
+    #apt install --no-install-recommends -y \
+    #   nvidia-driver \
+    #   nvidia-settings \
+    #   firmware-misc-nonfree \
+    #   linux-headers-amd64
 elif [[ $GPU_TYPE == *"amd"* ]]; then
     apt install --no-install-recommends -y \
         firmware-amd-graphics \
