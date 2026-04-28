@@ -21,6 +21,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 STAGES=(
     "$SCRIPT_DIR/core/install.sh"
+    "$SCRIPT_DIR/gpu/install.sh"
     "$SCRIPT_DIR/gui/install.sh"
     "$SCRIPT_DIR/shell/install.sh"
     "$SCRIPT_DIR/tools/install.sh"
